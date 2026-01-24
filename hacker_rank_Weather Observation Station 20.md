@@ -79,3 +79,6 @@ WHERE rn IN (
 );
 
 ```
+
+<img width="154" height="83" alt="image" src="https://github.com/user-attachments/assets/47b91bbb-ffef-4d77-b47e-3fdec053e488" />
+
