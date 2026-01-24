@@ -1,6 +1,6 @@
 https://www.hackerrank.com/challenges/weather-observation-station-20/problem?isFullScreen=true
 
-## 1단계
+# 1단계
 ### 왜 `SELECT 2 - (COUNT(*) % 2)` 의 결과가 1일까?
 
 ```sql
@@ -21,7 +21,7 @@ FROM STATION;
 | 홀수       | 1            | odd  |
 
 
-## 2단계
+# 2단계
 - `offset` 함수로 중앙값 찾기
 - OFFSET N = "정렬된 결과에서 앞의 N개 행을 건너뛰고 그 다음부터 가져와라"
 
@@ -96,6 +96,30 @@ MySQL에서 OFFSET에 소수가 들어가면
 → B부터 시작  
 → `LIMIT 2` 적용 시 B, C 선택  
 → 두 값의 평균 = 중앙값
+
+# 3단계
+
+```sql
+SELECT LAT_N
+FROM STATION
+ORDER BY LAT_N
+OFFSET 가운데로이동
+LIMIT 몇개꺼낼지
+```
+- 정렬해서 가운데를 뽑는다
+
+
+```sql
+SELECT ROUND(AVG(LAT_N), 4) AS median_lat_n
+FROM (
+    SELECT LAT_N
+    FROM STATION
+    ORDER BY LAT_N
+    OFFSET (SELECT (COUNT(*) - 1) / 2 FROM STATION)
+    LIMIT (SELECT 2 - (COUNT(*) % 2) FROM STATION)
+) AS sub;
+```
+
 
 ---
 
