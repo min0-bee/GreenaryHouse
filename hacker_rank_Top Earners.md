@@ -30,5 +30,7 @@ GROUP BY total_earning
 ORDER BY total_earning DESC
 LIMIT 1;
 ```
+<img width="119" height="76" alt="image" src="https://github.com/user-attachments/assets/5514af1a-ec4a-43f7-8e0a-a7502a57ca3e" />
+
 
 - ✅ SQL에서 ORDER BY는 기본값이 ASC (오름차순)
